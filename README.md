@@ -108,10 +108,10 @@ The implementation is found in the `challenges/arrayMap.js` file.
         return false;
     }
 
-// Example usage
-const numbers = [9, 2, 8, 7, 3, 1];
-const targetSum = 11;
-console.log(isTargetSumPresent(numbers, targetSum)); // Output: true
+    // Example usage
+    const numbers = [9, 2, 8, 7, 3, 1];
+    const targetSum = 11;
+    console.log(isTargetSumPresent(numbers, targetSum)); // Output: true
 
 ### 2. String Transformation
 
