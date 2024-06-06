@@ -18,15 +18,13 @@ function scrollToImage(imageSrc) {
     images.forEach(image => {
         const relativePath = image.src.split(window.location.origin)[1];
 
-        console.log('Relative path:', relativePath);
-        console.log('Provided imageSrc:', imageSrc);
-
         if (relativePath.includes(imageSrc)) {
-            console.log('Scrolling to:', relativePath);
             image.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     });
 }
 
-// currentSum += arr[end];
-// currentSum = currentSum + arr[end];
+function handleThumbnailClick(imageSrc) {
+    scrollToImage(imageSrc);
+    fullImageView(imageSrc);
+}
