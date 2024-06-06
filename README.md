@@ -88,31 +88,31 @@ Given an array of integers and a target sum, determine if there exists a contigu
 
 The implementation is found in the `challenges/arrayMap.js` file.
 
-```javascript
-function isTargetSumPresent(numbers, targetSum) {
-    let totalSum = 0;
-    const sumsSeen = [0];
 
-    for (let i = 0; i < numbers.length; i++) {
-        totalSum += numbers[i];
+    function isTargetSumPresent(numbers, targetSum) {
+        let totalSum = 0;
+        const sumsSeen = [0];
 
-        for (let j = 0; j < sumsSeen.length; j++) {
-            if (totalSum - sumsSeen[j] === targetSum) {
-                return true;
+        for (let i = 0; i < numbers.length; i++) {
+            totalSum += numbers[i];
+
+            for (let j = 0; j < sumsSeen.length; j++) {
+                if (totalSum - sumsSeen[j] === targetSum) {
+                    return true;
+                }
             }
+
+            sumsSeen.push(totalSum);
         }
 
-        sumsSeen.push(totalSum);
+        return false;
     }
-
-    return false;
-}
 
 // Example usage
 const numbers = [9, 2, 8, 7, 3, 1];
 const targetSum = 11;
 console.log(isTargetSumPresent(numbers, targetSum)); // Output: true
-```javascript
+
 ### 2. String Transformation
 
 #### Problem Statement
@@ -151,25 +151,25 @@ Given a string, transform it based on the following rules:
 
 The implementation is found in the `challenges/stringTransform.js` file.
 
-```javascript
-function modifyStringBasedOnLength(inputString) {
-    const stringLength = inputString.length;
 
-    if (stringLength % 15 === 0) {
-        return inputString.split('').reverse().map(char => char.charCodeAt(0)).join(' ');
-    } 
-    
-    if (stringLength % 3 === 0) {
-        return inputString.split('').reverse().join('');
+    function modifyStringBasedOnLength(inputString) {
+        const stringLength = inputString.length;
+
+        if (stringLength % 15 === 0) {
+            return inputString.split('').reverse().map(char => char.charCodeAt(0)).join(' ');
+        } 
+        
+        if (stringLength % 3 === 0) {
+            return inputString.split('').reverse().join('');
+        }
+        
+        if (stringLength % 5 === 0) {
+            return inputString.split('').map(char => char.charCodeAt(0)).join(' ');
+        }
+        
+        return inputString;
     }
-    
-    if (stringLength % 5 === 0) {
-        return inputString.split('').map(char => char.charCodeAt(0)).join(' ');
-    }
-    
-    return inputString;
-}
-```javascript
+
 
 ## Usage
 
