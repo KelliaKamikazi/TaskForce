@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGERY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="slider-wrapper">
+            <div class="image-list">
+                <div class="image-item-container">
+                    <img src="images/Image8.jpg" alt="Fox" class="image-item" onclick="fullImageView(this.src)">
+                    <div class="overlay">
+                        <div class="text">
+                            <h1>FENNEC<br> FOX</h1>
+                            <h2>India</h2>
+                        </div>
+                        <div class="view-more">Know More <span class="arrow">→</span></div>
+                    </div>
+                </div>
+                <div class="image-item-container">
+                    <img src="images/Image6.jpg" alt="Whale" class="image-item" onclick="fullImageView(this.src)">
+                    <div class="overlay">
+                        <div class="text">
+                            <h1>HUMPBACK <br>WHALE</h1>
+                            <h2>South Africa</h2>
+                        </div>
+                        <div class="view-more">Know More <span class="arrow">→</span></div>
+                    </div>
+                </div>
+                <div class="image-item-container">
+                    <img src="images/Image10.jpg" alt="Baboo" class="image-item" onclick="fullImageView(this.src)">
+                    <div class="overlay">
+                        <div class="text">
+                            <h1>COMMON BROWN<br> BABOO</h1>
+                            <h2>South Africa</h2>
+                        </div>
+                        <div class="view-more">Know More <span class="arrow">→</span></div>
+                    </div>
+                </div>
+                <div class="image-item-container">
+                    <img src="images/Image11.jpg" alt="Dear" class="image-item" onclick="fullImageView(this.src)">
+                    <div class="overlay">
+                        <div class="text">
+                            <h1>SPOTTED<br> DEER</h1>
+                            <h2>Amazon</h2>
+                        </div>
+                        <div class="view-more">Know More <span class="arrow">→</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="thumbnail-navigation">
+            <img src="images/Image8.jpg" alt="Fennec Fox">
+            <img src="images/Image6.jpg" alt="Humpback Whale">
+            <img src="images/Image10.jpg" alt="Common Brown Baboo">
+            <img src="images/Image11.jpg" alt="Spotted Deer">
+        </div>
+    </div>
+    <div id="fullImageView">
+        <span id="closeButton" onclick="closeFullImageView()">×</span>
+        <img id="fullImage">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

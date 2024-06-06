@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    height: 588px; /*as per required in the prototype  */
+    width: 1178px; /*as per required in the prototype  */
+    max-width: 880px;
+    width: 100%;
+    position: relative;
+}
+
+.slider-wrapper .image-list {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(4, calc(25% - 2px));
+    justify-content: center;
+}
+
+.image-item-container {
+    position: relative;
+    width: 240px;
+    height: 440px;
+    overflow: hidden;
+}
+
+.image-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s;
+    cursor: pointer;
+}
+
+.image-item-container:hover .image-item {
+    filter: blur(2px) grayscale(100%) brightness(0.5);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+    transition: transform 0.3s;
+}
+
+.text h1 {
+    font-weight: 700;
+    font-family: 'DIN Condensed';
+    font-size: 30px;
+    margin: 0;
+    line-height: 38px;
+    text-align: left;
+}
+
+.text h2 {
+    opacity: 70%;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16.02px;
+    margin: 1px 0 0 0;
+    text-align: left;
+}
+
+.view-more {
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    margin-top: 5px;
+    text-align: left;
+    color: #4B9CD3;
+    align-items: left;
+    padding-left: 30px;
+}
+
+.view-more .arrow {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.image-item-container:hover .text h1 {
+    transform: translateY(-25px);
+}
+
+.image-item-container:hover .text h2 {
+    transform: translateY(-20px);
+}
+
+.image-item-container:hover .view-more {
+    opacity: 1;
+    transform: translateY(-15px);
+}
+
+#fullImageView {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#fullImage {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.thumbnail-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.thumbnail-navigation img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s, border 0.3s;
+}
+
+.thumbnail-navigation img:hover {
+    transform: scale(1.1);
+    border: 2px solid whitesmoke;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        height: auto; /* Adjust height to auto for smaller screens */
+        width: 100%;
+    }
+
+    .slider-wrapper .image-list {
+        grid-template-columns: repeat(4, 98.5px); /* 4 columns layout with fixed width for tablets */
+        gap: 5px;
+    }
+
+    .image-item-container {
+        width: 98.5px; /* Fixed width for each image container */
+        height: 600px; /* Fixed height for each image container */
+    }
+
+    .text, .view-more {
+        display: none; /* Hide text and view-more on smaller screens */
+    }
+
+    .thumbnail-navigation {
+        display: none; /* Hide thumbnails on smaller screens */
+    }
+
+    .image-item-container .image-item {
+        filter: none; /* Remove filter effect on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-wrapper .image-list {
+        grid-template-columns: repeat(4, 98.5px); /* 4 columns layout with fixed width for mobile devices */
+        gap: 2px;
+    }
+
+    .image-item-container {
+        width: 98.5px; /* Fixed width for each image container */
+        height: 600px; /* Fixed height for each image container */
+    }
+
+    .text, .view-more {
+        display: none; /* Hide text and view-more on mobile screens */
+    }
+
+    .thumbnail-navigation {
+        display: none; /* Hide thumbnails on mobile screens */
+    }
+
+    .image-item-container .image-item {
+        filter: none; /* Remove filter effect on mobile */
+    }
+}
