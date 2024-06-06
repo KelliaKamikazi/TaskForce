@@ -112,7 +112,7 @@ function isTargetSumPresent(numbers, targetSum) {
 const numbers = [9, 2, 8, 7, 3, 1];
 const targetSum = 11;
 console.log(isTargetSumPresent(numbers, targetSum)); // Output: true
-
+```javascript
 ### 2. String Transformation
 
 #### Problem Statement
@@ -169,7 +169,7 @@ function modifyStringBasedOnLength(inputString) {
     
     return inputString;
 }
-
+```javascript
 
 ## Usage
 
