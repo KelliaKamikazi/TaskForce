@@ -56,44 +56,98 @@ The interactive photo gallery displays images in a grid format. On mobile device
 
 ## Coding Challenges
 
-### Contiguous Subarray Sum
+## 1.Array Manipulation
+ ## Problem Statement
+    1.Given an array of integers and a target sum, determine if there exists a contiguous subarray within the array that sums up to the target. Return true if such a subarray exists, otherwise return false.
 
-#### Problem Statement
+    Example
+    Input: arr = [4, 2, 7, 1, 9, 5], target = 17
+    Output: true
+    Explanation: The subarray [7, 1, 9] sums up to 17, which is equal to the target.
+    Constraints
+    The array will contain between 1 and 100,000 elements.
+    The elements in the array and the target sum will be between -1,000,000,000 and 1,000,000,000.
 
-Given an array of integers and a target sum, determine if there exists a contiguous subarray within the array that sums up to the target. Return true if such a subarray exists, otherwise return false.
+## Approach
+    -We maintain a variable totalSum to keep track of the cumulative sum of elements in the array.
+    -We initialize an array sumsSeen with one element, zero, to keep track of all the prefix sums we've encountered so far.
+    -We iterate through each element in the array:
+    -For each element, we add it to the totalSum.
+    -We iterate through all the prefix sums stored in the sumsSeen array.
+    -For each prefix sum, we check if the difference between the current totalSum and the prefix sum equals the targetSum.
+    -If such a difference exists, it indicates that there is a contiguous subarray with the target sum.
+    -If we finish iterating through all elements without finding such a subarray, we return false, indicating that no contiguous subarray with  the  target sum exists in the array.
 
-#### Example
+ ## Implementation 
+    function isTargetSumPresent(numbers, targetSum) {
+        let totalSum = 0;
+        const sumsSeen = [0];
 
-- Input: `arr = [4, 2, 7, 1, 9, 5]`, `target = 17`
-- Output: `true`
-- Explanation: The subarray `[7, 1, 9]` sums up to 17, which is equal to the target.
+        for (let i = 0; i < numbers.length; i++) {
+            totalSum += numbers[i];
 
-#### Approach
+            for (let j = 0; j < sumsSeen.length; j++) {
+                if (totalSum - sumsSeen[j] === targetSum) {
+                    return true;
+                }
+            }
 
-- **Sliding Window Technique**: Use two pointers to dynamically adjust the size of a window representing a subarray.
-- **Prefix Sum with Hash Map**: Store prefix sums in a set to check if a subarray with the desired sum exists.
-
-#### Implementation
-
-```javascript
-function hasContiguousSubarrayWithSum(arr, target) {
-    const prefixSumSet = new Set();
-    let currentSum = 0;
-
-    for (let i = 0; i < arr.length; i++) {
-        currentSum += arr[i];
-
-        if (currentSum === target) {
-            return true;
+            sumsSeen.push(totalSum);
         }
 
-        if (prefixSumSet.has(currentSum - target)) {
-            return true;
-        }
-
-        prefixSumSet.add(currentSum);
+        return false;
     }
 
-    return false;
-}
-# TaskForce
+
+
+## 2.String Transformation
+ ## Problem Statement
+    Given a string, transform it based on the following rules:
+ 
+    If the length of the string is divisible by 3, reverse the entire string.
+    If the length of the string is divisible by 5, replace each character with its ASCII code.
+    If the length of the string is divisible by both 3 and 5 (i.e., divisible by 15), perform both operations in the order specified above.
+ ## Examples
+    Input: "Hamburger"
+    Output: "regrubmaH"
+    Explanation: The length of the string is 9, which is divisible by 3 but not by 5 or 15. Therefore, the string is reversed, resulting in "regrubmaH".
+
+    Input: "Pizza"
+    Output: "80 105 122 122 97"
+    Explanation: The length of the string is 5, which is divisible by 5 but not by 3 or 15. Therefore, each character is replaced by its ASCII code, resulting in "80 105 122 122 97".
+
+    Input: "Chocolate Chip Cookie"
+    Output: "eikooCpihCetalocohC"
+    Explanation: The length of the string is 21, which is divisible by 3 but not by 5 or 15. Therefore, the string is reversed, resulting in "eikooCpihCetalocohC".
+
+ ## Approach
+    -Determine the length of the input string.
+    -Check if the length is divisible by 3, 5, or both.
+    -Apply the corresponding transformation rules based on the divisibility:
+    -If divisible by 3, reverse the string.
+    -If divisible by 5, replace each character with its ASCII code.
+    -If divisible by both 3 and 5, perform both operations in the specified order.
+    -Return the transformed string or the original string if no transformation is needed.    
+
+## Implementation
+    function modifyStringBasedOnLength(inputString) {
+        const stringLength = inputString.length;
+
+        if (stringLength % 15 === 0) {
+            return inputString.split('').reverse().map(char => char.charCodeAt(0)).join(' ');
+        } 
+        
+        if (stringLength % 3 === 0) {
+            return inputString.split('').reverse().join('');
+        }
+        
+        if (stringLength % 5 === 0) {
+            return inputString.split('').map(char => char.charCodeAt(0)).join(' ');
+        }
+        
+        return inputString;
+    }
+
+
+
+
