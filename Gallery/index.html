@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMAGERY</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Main container for the slider -->
     <div class="container">
         <div class="slider-wrapper">
+            <!-- Grid for image items -->
             <div class="image-list">
+                <!-- Individual image item with overlay -->
                 <div class="image-item-container">
                     <img src="images/Image8.jpg" alt="Fox" class="image-item" onclick="fullImageView(this.src)">
                     <div class="overlay">
@@ -21,6 +25,7 @@
                         <div class="view-more">Know More <span class="arrow">→</span></div>
                     </div>
                 </div>
+                <!-- Repeat structure for other images -->
                 <div class="image-item-container">
                     <img src="images/Image6.jpg" alt="Whale" class="image-item" onclick="fullImageView(this.src)">
                     <div class="overlay">
@@ -53,6 +58,7 @@
                 </div>
             </div>
         </div>
+        <!-- Thumbnail navigation for quick selection -->
         <div class="thumbnail-navigation">
             <img src="images/Image8.jpg" alt="Fennec Fox" data-full-image="images/Image8.jpg" onclick="handleThumbnailClick('images/Image8.jpg')">
             <img src="images/Image6.jpg" alt="Humpback Whale" data-full-image="images/Image6.jpg" onclick="handleThumbnailClick('images/Image6.jpg')">
@@ -60,10 +66,14 @@
             <img src="images/Image11.jpg" alt="Spotted Deer" data-full-image="images/Image11.jpg" onclick="handleThumbnailClick('images/Image11.jpg')">
         </div>
     </div>
+    <!-- Full image view container for displaying selected image -->
     <div id="fullImageView">
+        <!-- Close button for full image view -->
         <span id="closeButton" onclick="closeFullImageView()">×</span>
+        <!-- Full image display -->
         <img id="fullImage">
     </div>
+    <!-- Link to external JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
