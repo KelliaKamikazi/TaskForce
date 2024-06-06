@@ -36,10 +36,10 @@ This project is an interactive photo gallery built using HTML, CSS, and JavaScri
 
 ### Files
 
-- `gallery/index.html`: The main HTML file.
-- `gallery/style.css`: The CSS file for styling the gallery.
-- `gallery/script.js`: The JavaScript file for handling interactions.
-- `gallery/images/`: Directory containing image files.
+- `Gallery/index.html`: The main HTML file.
+- `Gallery/style.css`: The CSS file for styling the gallery.
+- `Gallery/script.js`: The JavaScript file for handling interactions.
+- `Gallery/images/`: Directory containing image files.
 
 ### Code Overview
 
